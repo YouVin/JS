@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이벤트 처리</title>
+</head>
+<body>
+  <h1>이벤트 처리</h1>
+  <div>
+    <button onclick="console.log('눌렀지');">눌러봐</button>
+  </div>
+
+  <script>
+    const btn = document.querySelector('button');
+    btn.onclick = function(){
+      console.log('눌렀음');
+    };
+  </script>
+</body>
+</html>

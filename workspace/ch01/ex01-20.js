@@ -1,0 +1,8 @@
+/*
+반복문 - while문
+*/
+let a = 1;
+while(a<=10){
+  console.log(a);
+  a++;
+}
