@@ -58,24 +58,15 @@
         liElem.appendChild(titleElem);
         liElem.appendChild(deleteElem);
 
-        console.log(liElem);
         liElem.dataset.no = item.no;
-        // 이벤트방법(1) : DOM Level2
-        // deleteElem.addEventListener('click', function (event) {
-        //   //no를 찾아서(1)
-        //   // const btn = event.target; //클릭 이벤트가 발생한 요소 <button>
-        //   // // 'closest'
-        //   // const liNode = btn.closest('li');
-        //   // deleteItem(liNode.dataset.no);
+        liElem.dataset.done = item.done;
 
-        //   //no를 찾아서(2)
-        // TODO 클로저 단원에서 확인인
-        //   deleteItem(item.no);
-        // });
-
-        // 이벤트방법(2) : DOM Level0
         deleteElem.setAttribute("onclick", `deleteItem(${item.no})`);
-        titleElem.setAttribute("onclick", `toggleDone(${item.no})`);
+        titleElem.addEventListener("click", function (event) {
+          const btn = event.target; // 클릭 이밴트가 발생한 요소 (button)
+          const liNode = btn.closest("li"); // 클릭한 버튼의 조상 요소 중에서 가장 가까운 li 요소를 찾음
+          toggleDone(liNode.dataset.no); // li 요소의 data-no 속성값을 가져옴
+        });
         return liElem;
       }
 
@@ -111,9 +102,22 @@
 
       // 완료, 미완료 처리
       function toggleDone(no) {
-        const isDoneLi = document.querySelector(
-          `.todolist > li[data-no="${no} > "]`
+        const targetLi = document.querySelector(
+          `.todolist > li[data-no="${no}"]`
         );
+        const done = targetLi.dataset.done === "true";
+        const titleEl = targetLi.querySelector("span:last-of-type");
+        if (done) {
+          // done이 true 라면 <span><s>샘플3</s></span> -> <span>샘플3</span>
+          titleEl.appendChild(titleEl.firstChild.firstChild);
+          titleEl.firstChild.remove();
+        } else {
+          // done이 false 라면 <span>샘플3</span> -> <span><s>샘플3</s></span>
+          const sElem = document.createElement("s"); //<s>
+          sElem.appendChild(titleEl.firstChild); // <s>샘플3</s> <span></span>
+          titleEl.appendChild(sElem); // <span><s>샘플3</s></span>
+        }
+        targetLi.dataset.done = !done;
       }
 
       // 할일 삭제
