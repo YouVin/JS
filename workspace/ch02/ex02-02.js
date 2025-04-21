@@ -8,12 +8,14 @@
 */
 
 // 함수는 함수의 인자로 전달될 수 있다.
-function foo(){
-	console.log('foo 호출.');
-};
+function foo(fn) {
+  console.log("foo 호출.");
+  fn(); // 인자로 함수 호출 -> bar() 호출
+}
 
-function bar(){
-	console.log('bar 호출.');
-};
+function bar() {
+  console.log("bar 호출.");
+}
 
-foo();
+foo(bar);
+foo(bar()); // foo 호출. bar 호출. TypeError : fn is not a function
