@@ -3,8 +3,9 @@
 */
 
 // 표현식 방식의 함수 선언(기명함수 사용예)
-var f = function factorial(n){
-	
+var f = function factorial(n) {
+  if (n === 1) return 1;
+  return n * factorial(n - 1);
 };
 
 console.log(f(5));
