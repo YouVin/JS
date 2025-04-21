@@ -106,7 +106,8 @@
           `.todolist > li[data-no="${no}"]`
         );
         const done = targetLi.dataset.done === "true";
-        const titleEl = targetLi.querySelector("span:last-of-type");
+        const titleEl = targetLi.querySelector("span:last-of-type"); //<span> 샘플3 </span>
+
         if (done) {
           // done이 true 라면 <span><s>샘플3</s></span> -> <span>샘플3</span>
           titleEl.appendChild(titleEl.firstChild.firstChild);
@@ -114,8 +115,9 @@
         } else {
           // done이 false 라면 <span>샘플3</span> -> <span><s>샘플3</s></span>
           const sElem = document.createElement("s"); //<s>
-          sElem.appendChild(titleEl.firstChild); // <s>샘플3</s> <span></span>
-          titleEl.appendChild(sElem); // <span><s>샘플3</s></span>
+          sElem.appendChild(titleEl.firstChild); // <s>샘플3</s> titleEl -> <span></span>
+          console.log(titleEl);
+          titleEl.appendChild(sElem); // <span><s>샘플3</s></span> <span><s>샘플3</s></span>
         }
         targetLi.dataset.done = !done;
       }
