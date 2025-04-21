@@ -7,16 +7,23 @@
   - 동적으로 생성된 프로퍼티를 가질 수 있다.
 */
 
-var num = 100;        // number
-var str = 'hello';    // string
-var obj = {};         // object
-var arr = [num, str]; // object(array)
+const num = 100; // number
+const str = "hello"; // string
+const obj = {}; // object
+const arr = [num, str]; // object(array)
 
 // 함수를 변수에 할당
-
+function foo() {
+  return "I am foo.";
+}
 
 // 함수를 배열의 요소로 할당
-
+arr.push(obj);
+arr.push(foo);
 
 // 함수를 객체의 속성으로 할당(메서드)
-
+obj.bar = foo;
+obj.baz = function () {
+  return "I am baz.";
+};
+console.log(foo(), arr[3](), obj.bar());
