@@ -16,14 +16,19 @@ baro.name = "바로핑";
 baro.age = 9;
 baro.getName = getPingName;
 
-console.log(getPingName());
-console.log(baro.age, baro.getName());
-
 const rara = {
   name: "라라핑",
   age: 8,
   getName: getPingName,
 };
 
+// 함수 호출하는 방법 1 - 일반함수로 호출
 console.log(getPingName());
+
+// 함수 호출하는 방법 2 - 메서드로 호출
+console.log(baro.age, baro.getName());
 console.log(rara.age, rara.getName());
+
+console.log(getPingName(), getPingName.call(baro)); // this = window, baro
+console.log(baro.getName(), baro.getName.apply(rara)); // this = baro, rara
+console.log(rara.getName(), baro.getName.apply(rara)); // this = rara, rara
