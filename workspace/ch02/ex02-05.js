@@ -5,7 +5,11 @@
 // 선언문 방식의 함수 선언
 
 function add(x, y) {
-  return x + y;
+  console.log(this);
+  const result = x + y;
+  return result;
 }
 
-console.log(add(10, 20));
+console.log(add(10, 20)); // 30 this = window
+console.log(add.call({ name: "add call" }, 30, 40)); // 70 this = {}
+console.log(add.apply({ name: "apply call" }, [50, 60])); // 110 this = []
