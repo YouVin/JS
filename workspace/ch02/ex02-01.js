@@ -27,3 +27,8 @@ obj.baz = function () {
   return "I am baz.";
 };
 console.log(foo(), arr[3](), obj.bar());
+
+//foo() this는 windwo
+// arr[3]() => arr.3() this 는 arr
+// obj.bar() this는 obj
+// arr[2].bar() this는 obj
