@@ -14,12 +14,22 @@ function foo() {
     console.log("bar 호출");
     return function () {
       console.log("baz 호출");
+      return foo(); // ->
+      return foo;
     };
   };
 }
 
-foo()()()()()()();
+// 안에 함수 코드도 호출하고 싶다 -> foo() 리턴
+// 결과값이 foo()  -> foo 리턴
 
-const bar = foo();
-const baz = bar();
-baz();
+// 즉 foo()는 foo함수를 실행시키고 나온 결과값을 반환값으로 가지고 foo는 foo함수 자체를 반환값으로 가진다는 의미
+
+function sayHello() {
+  return "Hello!";
+}
+console.log(sayHello()); // :Xsmall_blue_diamond: 실행 결과: "Hello!" 출력
+console.log(sayHello); // :small_blue_diamond: 함수 자체 출력: [Function: sayHello]
+
+const f = foo()()()()()()();
+f();
