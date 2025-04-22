@@ -3,12 +3,14 @@
   - this는 window 객체
 */
 
-function f1(){
-  
-};
-const f2 = function(){
-  
+function f1() {
+  console.log(this);
+}
+const f2 = function () {
+  console.log(this);
 };
 
 f1();
 f2();
+
+// 둘다 실행 시 윈도우 객체를 반환한다!
