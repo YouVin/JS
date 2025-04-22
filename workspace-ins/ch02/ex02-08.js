@@ -3,6 +3,18 @@
 */
 
 // 표현식 방식의 함수 선언(기명함수 사용예)
+<<<<<<< HEAD
+=======
+// 전달받은 숫자의 팩토리얼 값을 구해서 반환하는 함수
+var f = function factorial(n){
+  let result = 1;
+  for(let i=n; i>0; i--){
+    result *= i;
+  }
+  return result;
+}
+
+>>>>>>> f2d12d85eac79ec30b1ab55aeff7fe102a0879f5
 var f = function factorial(n){
   if(n === 1) return 1;
   // 5 * 4 * 3 * 2 * 1
