@@ -13,14 +13,37 @@
  * @param {number} kor 국어 점수
  * @param {number} eng 영어 점수
  */
-const Score = function(kor, eng){
+const Score = function (kor, eng) {
+  this.kor = kor;
+  this.eng = eng;
 
+  this.sum = () => {
+    return this.kor + this.eng;
+  };
+  // this.avg = () => {
+  //   return this.sum() / 2;
+  // };
+};
+Score.prototype.avg = function () {
+  return this.sum() / 2;
 };
 
 const s1 = new Score(90, 80);
 const s2 = new Score(70, 50);
 
+console.log(s1);
+console.log(s2);
+
 console.log(s1.sum()); // 170
 console.log(s1.avg()); // 85
 console.log(s2.sum()); // 120
 console.log(s2.avg()); // 60
+
+console.log(s1.sum === s2.sum); // false
+console.log(s1.avg === s2.avg); // true
+
+// 생성자 함수로 객체를 생성할 때마다 sum 프로퍼티를 새로 할당하기 때문에, 같은 sum 속성이라고 하더라도
+// s1 이 가리키는 sum 의 주소와 s2 가 가리키는 sum 의 주소가 다르다는 건가요?
+// prototype 은 같은 sum 주소를 가리키는 거고?
+// 즉 sum() 함수는 계속해서 생성 되니 메모리 측면에서 안좋음, 그러나 avg는 한번만 생성
+// 생성자함수 안에서는 속성을 정의하고 프로토타입에서는 메서드를 정의한다
