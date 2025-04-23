@@ -1,5 +1,6 @@
 // ex02-15.js 복사
 
+/*
 globalThis.name = 'global'; // 브라우저는 window, Node.js는 global 객체
 
 const getPingName = function(){
@@ -16,25 +17,25 @@ const rara = {
   age: 8,
   getName: getPingName
 };
+*/
 
-
-// 객체를 생성해서 반환하는 함수
-function Ping(){
-
+// 객체를 생성해서 반환하는 함수(생성자)
+function Ping(name, age){
+  this.age = age;
+  this.name = name;
+  this.getName = function(){
+    return this.name;
+  };
 }
 
-const copyPing = Ping();
+// new의 동작
+// 1. 빈 객체를 참조하는 this 생성
+// 2. this를 생성자 함수에 전달
+// 3. 생성자 함수가 아무것도 리턴하지 않는다면 this를 자동으로 리턴
+const baro = new Ping('바로핑', 9);
+const rara = new Ping('라라핑', 8);
+const copyPing = Ping('카피핑', 12);
 
-
-// 함수 호출하는 방법 1 - 일반 함수로 호출(this는 window)
-console.log(getPingName()); // this = window
-
-// 함수 호출하는 방법 2 - 메서드로 호출(this는 메서드를 정의한 객체)
-console.log(baro.age, baro.getName()); // getName()의 this는 baro
-console.log(rara.age, rara.getName()); // getName()의 this는 rara
-console.log(copyPing.age, copyPing.getName()); // getName()의 this는 copyPing
-
-
-console.log(getPingName(), getPingName.call(baro)); // this = window, baro
-console.log(baro.getName(), baro.getName.apply(rara)); // this = baro, rara
-console.log(rara.getName(), rara.getName.apply(globalThis)); // this = rara, window
+console.log(baro.age, baro.getName(), baro.height);
+console.log(rara.age, rara.getName());
+console.log(copyPing.age, copyPing.getName());
