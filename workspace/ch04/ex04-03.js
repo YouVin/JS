@@ -11,6 +11,9 @@ let currySum = function (a) {
   };
 };
 
+// 어후 가독성 떨어져 어후 ~
+//"한 번에 하나씩 인자를 받는 함수로 쪼개는 것"
+
 currySum = a = (b) => (c) => a + b + c;
 
 console.log(currySum(10)(20)(30));
