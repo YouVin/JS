@@ -34,15 +34,9 @@ function College(kor, eng) {
   this.eng = eng;
 }
 
-inherite(HighSchool, College);
+mylib.inherite(HighSchool, College);
 
-// Child가 Parent를 상속 받는다.
-function inherite(Parent, Child) {
-  const F = new Function();
-  F.prototype = Parent.prototype;
-  Child.prototype = new F();
-  Child.prototype.constructor = Child;
-}
+// js/mylib.js에 정의
 
 College.prototype.grade = function () {
   let level = "F";

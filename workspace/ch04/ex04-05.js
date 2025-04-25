@@ -1,16 +1,18 @@
-// Function에 prototype 에 메모라는 함수 추가!
-Function.prototype.memo = function (key) {
-  //캐시를 위한 코드
-  //_cache는 외부에서 접근할 필요가 없는 속성
-  //_cache는 isPrime 함수의 속성으로 정의
-  // this 는 isPrime
-  this._cache = this._cache || {};
-  if (this._cache[key] !== undefined) {
-    return this._cache[key];
-  } else {
-    return (this._cache[key] = this(key));
-  }
-};
+// // Function에 prototype 에 메모라는 함수 추가!
+// Function.prototype.memo = function (key) {
+//   //캐시를 위한 코드
+//   //_cache는 외부에서 접근할 필요가 없는 속성
+//   //_cache는 isPrime 함수의 속성으로 정의
+//   // this 는 isPrime
+//   this._cache = this._cache || {};
+//   if (this._cache[key] !== undefined) {
+//     return this._cache[key];
+//   } else {
+//     return (this._cache[key] = this(key));
+//   }
+// };
+
+// js/mylib.js 파일에 memo 정의됨
 
 // 지정한 수가 소수인지 여부를 반환
 var isPrime = function (num) {
