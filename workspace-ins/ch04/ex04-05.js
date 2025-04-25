@@ -1,15 +1,6 @@
 // ex02-23.js 복사
 
-// 함수에 메모이제이션 기능 추가
-Function.prototype.memo = function(key){ // this = isPrime
-  // 캐시를 위한 코드
-  this._cache = this._cache || {};
-  if(this._cache[key] !== undefined){ // key에 대해서 계산이 끝나고 캐시된 경우
-    return this._cache[key];
-  }else{
-    return this._cache[key] = this(key); // isPrime 함수를 호출해서 결과를 받은 후 캐시에 저장하고 리턴
-  }
-};
+// js/mylib.js 파일에 memo 정의됨
 
 // 지정한 수가 소수인지 여부를 반환
 const isPrime = function(num){ // num = 5
