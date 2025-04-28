@@ -19,9 +19,18 @@
   let userName: any = "빈유황";
   userName = 1999; // any 는 어떤 값이든 가능
 
+  // unknown: 어떤 값이든 저장이 가능하지만, 사용할 때 추가적인 타입 체크 코드를 요구
   let userName2: unknown = "황유빈";
   userName2 = 1999;
 
-  console.log(userName.toUpperCase());
+  // 런타임 에러 발생
+  //console.log(userName.toUpperCase());
+
+  // 에러 발생 숫자 타입에 toUpperCase 메서드가 없기 때문 -> 타입 체크 해주기
   // console.log(userName2.toUpperCase());
+
+  // 타입 체크
+  if (typeof userName2 === "string") {
+    // console.log(userName2.toUpperCase());
+  }
 })();
