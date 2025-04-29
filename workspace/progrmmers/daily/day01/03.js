@@ -38,3 +38,11 @@ rl.on("line", function (line) {
     result += str;
   }
 });
+
+// 문자열과 반복할 정수를 전달 받아서 문자열을 반복할 횟수만큼 붙여서 반환한다.
+function getRepeat(str, num) {
+  let result = "";
+  for (let i = 0; i < num; i++) {
+    result += str;
+  }
+}
