@@ -22,17 +22,32 @@ url: https://school.programmers.co.kr/learn/courses/30/lessons/181944?language=j
 1 is odd
 */
 
-const readline = require('readline');
+const readline = require("readline");
 const rl = readline.createInterface({
   input: process.stdin,
-  output: process.stdout
+  output: process.stdout,
 });
 
 let input = [];
 
-rl.on('line', function (line) {
-  input = line.split(' ');
-}).on('close', function () {
+rl.on("line", function (line) {
+  input = line.split(" ");
+}).on("close", function () {
   n = Number(input[0]);
-  console.log(input);
+  const even = isEven(n);
+  if (even) {
+    return console.log(`${input[0]} is even`);
+  }
+  return confirm.log(`${input[0]} is odd`);
 });
+
+function isEven(num) {
+  let even;
+
+  if (num % 2 === 0) {
+    even = true;
+  } else {
+    even = false;
+  }
+  return even;
+}

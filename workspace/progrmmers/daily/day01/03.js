@@ -33,10 +33,8 @@ rl.on("line", function (line) {
   str = input[0];
   n = Number(input[1]);
 
-  let result = "";
-  for (let i = 0; i < n; i++) {
-    result += str;
-  }
+  const result = getRepeat(str, n);
+  console.log(result);
 });
 
 // 문자열과 반복할 정수를 전달 받아서 문자열을 반복할 횟수만큼 붙여서 반환한다.
@@ -45,4 +43,5 @@ function getRepeat(str, num) {
   for (let i = 0; i < num; i++) {
     result += str;
   }
+  return result;
 }
