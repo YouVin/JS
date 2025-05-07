@@ -22,6 +22,7 @@
 
   function test(){ // 비동기
     console.log('\t2. test 호출됨.');
+    // 콜백 헬
     f1((result) => { // 콜백 함수 전달
       console.log('\t8. f1 작업이 완료된 후에 호출.', result);
       f1((result) => { // 콜백 함수 전달
