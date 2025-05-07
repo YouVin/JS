@@ -5,7 +5,7 @@
 // ex08-07-02.ts 복사
 
 (() => {
-  function f1(resolve: (str: string) => void) {
+  function f1(resolve: (result: string) => void) {
     // 비동기 함수
     console.log("\t\t3. f1 호출됨.");
     const delay = Math.floor(Math.random() * 1000 * 10);
@@ -22,13 +22,13 @@
   function test() {
     // 비동기
     console.log("\t2. test 호출됨.");
-    f1(() => {
+    f1((result) => {
       // 콜백 함수 전달
-      console.log("\t8. f1 작업이 완료된 후에 호출.");
+      console.log("\t8. f1 작업이 완료된 후에 호출.", result);
     });
-    f1(() => {
+    f1((result) => {
       // 콜백 함수 전달
-      console.log("\t9. f1 작업이 완료된 후에 호출.");
+      console.log("\t9. f1 작업이 완료된 후에 호출.", result);
     });
     console.log("\t6. test 리턴됨");
   }
