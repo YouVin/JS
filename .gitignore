@@ -3,8 +3,8 @@
 .github
 PPT/~$*
 tempCodeRunnerFile.*
-workspace-ins/ch06/*.js
-workspace-ins/ch07/*.js
+workspace/ch05/ajax/**/*.js
+workspace/ch05/bom/**/*.js
 workspace/ch06/*.js
 workspace/ch07/*.js
 workspace/ch08/*.js
